@@ -153,6 +153,7 @@ def get_japanese_emoticon(path, emoticon)
   emoticon_hash = load_library(path)
   emoticon_result = nil
   emoticon_hash.each do |key|
+    binding.pry
     if emoticon_hash[key][:english] == emoticon
       emoticon_result == emoticon_hash[key][:japanese]
     end
