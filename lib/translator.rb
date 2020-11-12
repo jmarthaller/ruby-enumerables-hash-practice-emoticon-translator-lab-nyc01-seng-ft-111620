@@ -17,15 +17,16 @@ require "pry"
 
 
 
-# # def get_japanese_emoticon(path, emoticon)
-# #   result_library = load_library(path)
-# #     result_library.keys.detect do |key|
-# #       if result_library[key][:english] == emoticon
-# #         return result_library[key][:japanese]
-# #       end
-# #     end
-# #   return 'Sorry, that emoticon was not found'
-# # end
+def get_japanese_emoticon(path, emoticon)
+  result_library = load_library(path)
+    result_library.keys.detect do |key|
+      
+      if result_library[key][:english] == emoticon
+        return result_library[key][:japanese]
+      end
+    end
+  return 'Sorry, that emoticon was not found'
+end
 
 
  
@@ -130,22 +131,22 @@ end
 
 
 
-def get_japanese_emoticon(path, emoticon)
-  result = load_library(path)
-  hash_store = nil
-  result.each do |word, symbol_pair|
-    symbol_pair.each do |language_word, emoji|
-      if emoticon == emoji
-        hash_store = result[word]
-      end
-    end
-  end
-  if hash_store == nil
-    return "Sorry, that emoticon was not found"
-  else
-    hash_store[:japanese]
-  end
-end
+# def get_japanese_emoticon(path, emoticon)
+#   result = load_library(path)
+#   hash_store = nil
+#   result.each do |word, symbol_pair|
+#     symbol_pair.each do |language_word, emoji|
+#       if emoticon == emoji
+#         hash_store = result[word]
+#       end
+#     end
+#   end
+#   if hash_store == nil
+#     return "Sorry, that emoticon was not found"
+#   else
+#     hash_store[:japanese]
+#   end
+# end
 
 
 
