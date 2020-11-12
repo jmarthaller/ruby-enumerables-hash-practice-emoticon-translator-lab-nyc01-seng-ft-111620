@@ -17,16 +17,16 @@ require "pry"
 
 
 
-def get_japanese_emoticon(path, emoticon)
-  result_library = load_library(path)
-    result_library.keys.detect do |key|
+# def get_japanese_emoticon(path, emoticon)
+#   result_library = load_library(path)
+#     result_library.keys.detect do |key|
       
-      if result_library[key][:english] == emoticon
-        return result_library[key][:japanese]
-      end
-    end
-  return 'Sorry, that emoticon was not found'
-end
+#       if result_library[key][:english] == emoticon
+#         return result_library[key][:japanese]
+#       end
+#     end
+#   return 'Sorry, that emoticon was not found'
+# end
 
 
  
@@ -149,7 +149,13 @@ end
 # end
 
 
-
+def get_japanese_emoticon(path, emoticon)
+  emoticon_hash = load_library(path)
+  emoticon_result = emoticon_hash.keys.find do |key|
+    emoticon_hash[key][:english] == emoticon[1]
+  end
+  emoticon_result ? emoticon_result : "Sorry, that emoticon was not found"
+end
 
 
 
